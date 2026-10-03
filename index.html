@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La' Massas — Clube de Pontos</title>
+<style>
+  :root {
+    --dourado: #D4AF37;
+    --dourado-claro: #F0D060;
+    --marrom-escuro: #2B1D0E;
+    --marrom-medio: #4A2C17;
+    --creme: #FFF8E7;
+    --laranja: #FF8C00;
+    --vermelho: #C0392B;
+    --branco: #fff;
+    --sombra: 0 8px 32px rgba(43, 29, 14, 0.12);
+    --sombra-forte: 0 12px 40px rgba(43, 29, 14, 0.2);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--marrom-escuro);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    color: var(--creme);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  /* ---------- HEADER COM LOGO ---------- */
+  header {
+    background: linear-gradient(135deg, #1A1108 0%, #2B1D0E 50%, #3D2A14 100%);
+    color: var(--creme);
+    text-align: center;
+    padding: 30px 20px 110px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--dourado);
+  }
+
+  .logo-container {
+    max-width: 320px;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.3));
+  }
+
+  .logo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--dourado-claro), var(--dourado), #B8960C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+  }
+
+  header p {
+    margin-top: 8px;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: rgba(255, 248, 231, 0.85);
+    font-weight: 300;
+  }
+
+  .selo {
+    display: inline-block;
+    margin-top: 18px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(255, 140, 0, 0.2));
+    border: 2px solid var(--dourado);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--dourado-claro);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+  }
+
+  /* ---------- CONTAINER E CARDS ---------- */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 18px;
+  }
+
+  .card {
+    background: linear-gradient(145deg, rgba(255, 248, 231, 0.98), rgba(255, 245, 220, 0.95));
+    border-radius: 24px;
+    box-shadow: var(--sombra-forte);
+    padding: 32px;
+    color: var(--marrom-escuro);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--dourado), var(--laranja), var(--dourado));
+  }
+
+  .form-card {
+    margin-top: -70px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card .sub {
+    font-size: 0.88rem;
+    color: #96795f;
+    margin-bottom: 22px;
+  }
+
+  /* ---------- FORMULÁRIO ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .campo { display: flex; flex-direction: column; gap: 6px; }
+  .campo.full { grid-column: 1 / -1; }
+
+  .campo input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 14px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--marrom-escuro);
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.25s ease;
+  }
+
+  .campo input:focus {
+    outline: none;
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15), 0 4px 16px rgba(212, 175, 55, 0.1);
+    background: #fff;
+  }
+
+  .campo label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--marrom-medio);
+    margin-bottom: 6px;
+  }
+
+  .campo .dica {
+    font-size: 0.75rem;
+    color: #a89078;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    width: 100%;
+    margin-top: 22px;
+    background: linear-gradient(135deg, var(--dourado), #C49B1A, var(--laranja));
+    color: var(--marrom-escuro);
+    font-size: 17px;
+    font-weight: 800;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.45);
+    filter: brightness(1.05);
+  }
+
+  /* ---------- ESTATÍSTICAS ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--branco);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--sombra);
+    border-bottom: 4px solid var(--dourado);
+  }
+  .stat .num {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--laranja);
+    line-height: 1;
+  }
+  .stat .rot {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #96795f;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  /* ---------- CONSULTA DE PONTOS ---------- */
+  .consulta-card {
+    background: linear-gradient(145deg, #FFF3D6, #FFE7CC);
+    border: 2px dashed var(--dourado);
+  }
+
+  .resultado-consulta {
+    display: none;
+    margin-top: 20px;
+    background: var(--branco);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--sombra);
+  }
+
+  .resultado-consulta h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--marrom-escuro);
+  }
+
+  .barra-progresso {
+    height: 14px;
+    background: #F1E2CE;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 12px 0;
+  }
+
+  .barra-preenchimento {
+    height: 100%;
+    background: linear-gradient(90deg, var(--dourado), var(--laranja));
+    border-radius: 50px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  .faltam-pontos {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--marrom-medio);
+    text-align: center;
+  }
+
+  /* ---------- REGRAS ---------- */
+  .regras {
+    background: linear-gradient(135deg, #FFF3D6, #FFE7CC);
+    border: 2px dashed var(--dourado);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 24px;
+    color: var(--marrom-escuro);
+  }
+  .regras h3 { font-size: 1.05rem; margin-bottom: 14px; }
+  .regras ul { list-style: none; display: grid; gap: 10px; }
+  .regras li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.92rem;
+    align-items: flex-start;
+    line-height: 1.45;
+  }
+  .regras li span { font-size: 1.05rem; }
+  .regras .destaque {
+    margin-top: 16px;
+    background: var(--branco);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--vermelho);
+  }
+
+  /* ---------- TOAST ---------- */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 26px;
+    transform: translate(-50%, 120px);
+    background: var(--marrom-escuro);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: .35s cubic-bezier(.2,.9,.3,1.3);
+    z-index: 999;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; }
+  .toast.ok { background: #127a53; }
+  .toast.erro { background: var(--vermelho); }
+  .toast.bonus { background: linear-gradient(135deg, var(--laranja), var(--vermelho)); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.82rem;
+    color: rgba(255, 248, 231, 0.6);
+    line-height: 1.7;
+  }
+
+  /* =========================================================
+     PAINEL ADMINISTRATIVO E LOGIN
+     ========================================================= */
+
+  .admin-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--dourado), var(--laranja));
+    color: var(--marrom-escuro);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 8px 28px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+  }
+
+  .admin-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 12px 36px rgba(212, 175, 55, 0.65);
+  }
+
+  /* Tela de Login */
+  .login-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 17, 8, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 300;
+    display: none;
+    place-items: center;
+  }
+  .login-panel.aberto { display: grid; }
+
+  .login-box {
+    background: var(--creme);
+    border-radius: 24px;
+    padding: 32px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: var(--sombra-forte);
+    border: 2px solid var(--dourado);
+    color: var(--marrom-escuro);
+    text-align: center;
+    animation: entra .3s ease;
+  }
+  @keyframes entra {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: var(--marrom-escuro);
+    font-size: 1.3rem;
+  }
+
+  .login-box .campo {
+    text-align: left;
+  }
+
+  .login-box .btn-limpar {
+    background: #fff;
+    color: var(--vermelho);
+    border: 2px solid #FFD9DC;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+  }
+  .login-box .btn-limpar:hover { background: #FFF0F1; }
+
+  /* Painel Admin */
+  .admin-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 17, 8, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 200;
+    display: none;
+    flex-direction: column;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .admin-panel.aberto { display: flex; }
+
+  .admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--dourado);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .admin-header h2 {
+    font-size: 1.4rem;
+    color: var(--dourado);
+  }
+
+  .admin-fechar {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--dourado);
+    color: var(--dourado);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: 0.2s;
+  }
+
+  .admin-fechar:hover {
+    background: var(--dourado);
+    color: var(--marrom-escuro);
+  }
+
+  .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .admin-stat {
+    background: rgba(255, 248, 231, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .admin-stat .num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dourado);
+  }
+
+  .admin-stat .rot {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 248, 231, 0.7);
+    margin-top: 6px;
+  }
+
+  .admin-lista {
+    display: grid;
+    gap: 12px;
+  }
+
+  .admin-cliente {
+    background: rgba(255, 248, 231, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: 0.2s;
+  }
+
+  .admin-cliente:hover {
+    background: rgba(255, 248, 231, 0.1);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+
+  .admin-avatar {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--dourado), var(--laranja));
+    color: var(--marrom-escuro);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+
+  .admin-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .admin-info h4 {
+    font-size: 1rem;
+    color: var(--creme);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .admin-info span {
+    font-size: 0.8rem;
+    color: rgba(255, 248, 231, 0.6);
+  }
+
+  .admin-pontos {
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 10px;
+    padding: 6px 14px;
+    text-align: center;
+    min-width: 70px;
+  }
+
+  .admin-pontos strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--dourado);
+    line-height: 1;
+  }
+
+  .admin-pontos span {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: rgba(255, 248, 231, 0.5);
+  }
+
+  .admin-acoes {
+    display: flex;
+    gap: 6px;
+  }
+
+  .admin-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+  }
+
+  .admin-btn-resgatar {
+    background: linear-gradient(135deg, var(--dourado), var(--laranja));
+    color: var(--marrom-escuro);
+  }
+
+  .admin-btn-excluir {
+    background: rgba(192, 57, 43, 0.3);
+    color: #FF6B6B;
+  }
+
+  .admin-btn-limpar {
+    background: rgba(192, 57, 43, 0.6);
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* ---------- RESPONSIVO MOBILE ---------- */
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .card { padding: 24px 18px; border-radius: 18px; }
+    .form-card { margin-top: -50px; }
+    .admin-stats { grid-template-columns: 1fr; }
+    .admin-cliente { flex-wrap: wrap; }
+    .admin-acoes { width: 100%; margin-top: 8px; }
+    .admin-btn { flex: 1; }
+    .admin-toggle { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+  }
+
+  @media (max-width: 380px) {
+    .stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🥟 La' MASSAS 🥤</h1>
+  <p>⇓ Aqui seu cadastro vale pontos! ⇓</p>
+  <div class="selo">🎁 Clube de Pontos — Cadastre-se e garanta já o seu combo!</div>
+</header>
+
+<div class="container">
+
+  <!-- FORMULÁRIO DE CADASTRO -->
+  <section class="card form-card">
+    <h2>📝 Cadastre-se</h2>
+    <p class="sub">Preencha os dados abaixo. Ao se cadastrar você já ganha <strong>5 pontos de boas-vindas</strong>!</p>
+
+    <form id="formCadastro" novalidate>
+      <div class="grid">
+        <div class="campo full">
+          <label for="nome">Nome completo *</label>
+          <input type="text" id="nome" placeholder="Ex: Maria Silva" autocomplete="name" required>
+        </div>
+
+        <div class="campo full">
+          <label for="endereco">Endereço de entrega *</label>
+          <input type="text" id="endereco" placeholder="Rua, número, bairro e ponto de referência" autocomplete="street-address" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone / WhatsApp *</label>
+          <input type="tel" id="telefone" data-tel placeholder="(11) 91234-5678" inputmode="numeric" required>
+          <span class="dica">Usado para identificar você no clube de pontos.</span>
+        </div>
+
+        <div class="campo">
+          <label for="indicacao">Indicação de um amigo</label>
+          <input type="tel" id="indicacao" data-tel placeholder="(11) 91234-5678" inputmode="numeric">
+          <span class="dica">Telefone do amigo que te indicou — ele ganha +2 pontos.</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">🎉 Cadastrar e ganhar 5 pontos</button>
+    </form>
+  </section>
+
+  <!-- CONSULTA DE PONTOS -->
+  <section class="card consulta-card">
+    <h2>⭐ Consultar Meus Pontos</h2>
+    <p class="sub">Digite seu telefone cadastrado para ver quantos pontos você já tem e o quanto falta para o combo!</p>
+    
+    <form id="formConsulta">
+      <div class="campo">
+        <label for="consultaTel">Telefone cadastrado</label>
+        <input type="tel" id="consultaTel" data-tel placeholder="(11) 91234-5678" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:16px;">🔍 Consultar Pontos</button>
+    </form>
+
+    <div class="resultado-consulta" id="resultadoConsulta">
+      <h3 id="nomeConsulta"></h3>
+      <p>Pontos atuais: <strong id="pontosConsulta" style="font-size:1.5rem; color:var(--laranja);"></strong></p>
+      <div class="barra-progresso">
+        <div class="barra-preenchimento" id="barraPreenchimento"></div>
+      </div>
+      <p class="faltam-pontos" id="faltamPontos"></p>
+    </div>
+  </section>
+
+  <!-- ESTATÍSTICAS -->
+  <section class="stats">
+    <div class="stat">
+      <div class="num" id="totalClientes">0</div>
+      <div class="rot">Clientes cadastrados</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="totalPontos">0</div>
+      <div class="rot">Pontos ativos</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="totalCombos">0</div>
+      <div class="rot">Combos resgatados</div>
+    </div>
+  </section>
+
+  <!-- REGRAS -->
+  <section class="regras">
+    <h3>⭐ Como funciona o Clube de Pontos</h3>
+    <ul>
+      <li><span>🎉</span> <div><strong>5 pontos</strong> de boas-vindas ao se cadastrar na La' Massas!</div></li>
+      <li><span>🛵</span> <div><strong>5 pontos</strong> a cada pedido acima de R$ 20,00.</div></li>
+      <li><span>🤝</span> <div><strong>2 pontos</strong> por amigo indicado!</div></li>
+    </ul>
+    <div class="destaque">
+      🏆 Junte 20 pontos e troque pelo nosso combo especial: salgado + refrigerante! 🤤❤️
+    </div>
+  </section>
+
+  <footer>
+    <strong>La' Massas</strong> — muito sabor e vantagens para você! 🥟💛<br>
+    #LaMassas #ClubeDePontos #Promoção #SalgadosGourmets #Delivery #VantagensExclusivas
+  </footer>
+</div>
+
+<!-- Botão flutuante para abrir o LOGIN do admin -->
+<button class="admin-toggle" id="adminToggle" title="Painel Administrativo">
+  ⚙️
+</button>
+
+<!-- TELA DE LOGIN DO ADMIN -->
+<div class="login-panel" id="loginPanel">
+  <div class="login-box">
+    <h2>🔐 Área do Administrador</h2>
+    <form id="formLogin">
+      <div class="campo">
+        <label for="senhaAdmin">Senha de Acesso</label>
+        <input type="password" id="senhaAdmin" placeholder="Digite sua senha" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:16px;">Entrar no Painel</button>
+    </form>
+    <button class="btn btn-limpar" id="fecharLogin">Cancelar</button>
+  </div>
+</div>
+
+<!-- PAINEL ADMINISTRATIVO (só abre após login) -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h2>⚙️ Painel Administrativo — La' Massas</h2>
+    <button class="admin-fechar" id="adminFechar">✕</button>
+  </div>
+
+  <div class="admin-stats">
+    <div class="admin-stat">
+      <div class="num" id="adminTotalClientes">0</div>
+      <div class="rot">Clientes</div>
+    </div>
+    <div class="admin-stat">
+      <div class="num" id="adminTotalPontos">0</div>
+      <div class="rot">Pontos Ativos</div>
+    </div>
+    <div class="admin-stat">
+      <div class="num" id="adminTotalCombos">0</div>
+      <div class="rot">Combos Resgatados</div>
+    </div>
+  </div>
+
+  <button class="admin-btn admin-btn-limpar" id="btnLimparAdmin">🗑️ Apagar TODOS os dados</button>
+
+  <div class="admin-lista" id="adminLista"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// =========================================================
+// CONFIGURAÇÕES E VARIÁVEIS GLOBAIS
+// =========================================================
+
+// ⚠️ ALTERE A SENHA ABAIXO PARA A SUA SENHA SEGURA ⚠️
+const SENHA_ADMIN = "415263";
+
+const STORAGE_KEY = 'lamassas_clientes_v1';
+const PONTOS_BOAS_VINDAS = 5;
+const PONTOS_POR_PEDIDO   = 5;
+const PONTOS_POR_INDICACAO = 2;
+const PONTOS_PARA_COMBO   = 20;
+
+let clientes = carregar();
+
+// Elementos do DOM
+const adminToggle = document.getElementById('adminToggle');
+const adminPanel = document.getElementById('adminPanel');
+const adminFechar = document.getElementById('adminFechar');
+const loginPanel = document.getElementById('loginPanel');
+const formLogin = document.getElementById('formLogin');
+const senhaAdmin = document.getElementById('senhaAdmin');
+const fecharLogin = document.getElementById('fecharLogin');
+
+/* ---------- Persistência ---------- */
+function carregar(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const dados = raw ? JSON.parse(raw) : [];
+    return Array.isArray(dados) ? dados : [];
+  }catch(e){
+    console.warn('Erro ao carregar dados:', e);
+    return [];
+  }
+}
+
+function salvar(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(clientes));
+  }catch(e){
+    toast('Não foi possível salvar os dados.', 'erro');
+  }
+}
+
+/* ---------- Helpers ---------- */
+function somenteDigitos(v){ return String(v || '').replace(/\D/g, ''); }
+
+function mascaraTelefone(valor){
+  const d = somenteDigitos(valor).slice(0, 11);
+  if(d.length === 0) return '';
+  if(d.length <= 2)  return `(${d}`;
+  if(d.length <= 6)  return `(${d.slice(0,2)}) ${d.slice(2)}`;
+  if(d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+  return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+}
+
+function esc(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => (
+    { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
+  ));
+}
+
+function hoje(){
+  return new Date().toLocaleDateString('pt-BR');
+}
+
+let toastTimer;
+function toast(msg, tipo = 'ok'){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast show ' + tipo;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = 'toast'; }, 3600);
+}
+
+/* ---------- Máscara automática nos telefones ---------- */
+document.querySelectorAll('[data-tel]').forEach(inp => {
+  inp.addEventListener('input', e => {
+    e.target.value = mascaraTelefone(e.target.value);
+  });
+});
+
+// =========================================================
+// LÓGICA DO CLIENTE (CADASTRO E CONSULTA)
+// =========================================================
+
+/* ---------- Cadastro ---------- */
+const form = document.getElementById('formCadastro');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const nome      = document.getElementById('nome').value.trim();
+  const endereco  = document.getElementById('endereco').value.trim();
+  const telRaw    = document.getElementById('telefone').value.trim();
+  const indicRaw  = document.getElementById('indicacao').value.trim();
+
+  if(nome.length < 3) { toast('Digite o nome completo do cliente.', 'erro'); return; }
+  if(endereco.length < 5) { toast('Digite um endereço válido.', 'erro'); return; }
+  
+  const telDigitos = somenteDigitos(telRaw);
+  if(telDigitos.length < 10) { toast('Telefone inválido. Use (DDD) + número.', 'erro'); return; }
+  
+  if(clientes.some(c => somenteDigitos(c.telefone) === telDigitos)){
+    toast('Este telefone já está cadastrado!', 'erro');
+    return;
+  }
+
+  const indDigitos = somenteDigitos(indicRaw);
+  let indicadoPorNome = null;
+  let amigoIndex = -1;
+
+  if(indDigitos.length >= 10){
+    if(indDigitos === telDigitos){
+      toast('Você não pode indicar o seu próprio número. 😅', 'erro');
+      return;
+    }
+    amigoIndex = clientes.findIndex(c => somenteDigitos(c.telefone) === indDigitos);
+    if(amigoIndex >= 0){
+      indicadoPorNome = clientes[amigoIndex].nome;
+      clientes[amigoIndex].pontos += PONTOS_POR_INDICACAO;
+      clientes[amigoIndex].indicacoes = (clientes[amigoIndex].indicacoes || 0) + 1;
+    }
+  }
+
+  const novo = {
+    id: Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+    nome,
+    endereco,
+    telefone: mascaraTelefone(telDigitos),
+    indicacao: indDigitos.length >= 10 ? mascaraTelefone(indDigitos) : '',
+    indicadoPorNome,
+    pontos: PONTOS_BOAS_VINDAS,
+    pedidos: 0,
+    resgates: 0,
+    data: hoje()
+  };
+
+  clientes.push(novo);
+  salvar();
+  render();
+
+  form.reset();
+
+  if(indicadoPorNome){
+    toast(`✅ ${nome} cadastrado! +${PONTOS_BOAS_VINDAS} pts e ${indicadoPorNome} ganhou +${PONTOS_POR_INDICACAO} pts 🤝`, 'bonus');
+  }else{
+    toast(`✅ ${nome} cadastrado com ${PONTOS_BOAS_VINDAS} pontos de boas-vindas! 🎉`, 'ok');
+  }
+});
+
+/* ---------- Consulta de Pontos ---------- */
+const formConsulta = document.getElementById('formConsulta');
+const resultadoConsulta = document.getElementById('resultadoConsulta');
+
+formConsulta.addEventListener('submit', e => {
+  e.preventDefault();
+  const tel = somenteDigitos(document.getElementById('consultaTel').value);
+  
+  if(tel.length < 10) {
+    toast("Digite um telefone válido com DDD.", "erro");
+    return;
+  }
+
+  const cliente = clientes.find(c => somenteDigitos(c.telefone) === tel);
+  
+  if (!cliente) {
+    toast("Telefone não encontrado. Faça seu cadastro!", "erro");
+    resultadoConsulta.style.display = 'none';
+    return;
+  }
+
+  // Preenche os dados na tela
+  document.getElementById('nomeConsulta').textContent = `Olá, ${cliente.nome}!`;
+  document.getElementById('pontosConsulta').textContent = `${cliente.pontos} pontos`;
+  
+  const percentual = Math.min((cliente.pontos / PONTOS_PARA_COMBO) * 100, 100);
+  document.getElementById('barraPreenchimento').style.width = `${percentual}%`;
+  
+  const faltam = PONTOS_PARA_COMBO - cliente.pontos;
+  document.getElementById('faltamPontos').textContent = faltam <= 0 
+    ? "🎉 Você já pode resgatar seu combo! Vá até a loja." 
+    : `Faltam apenas ${faltam} pontos para o seu combo!`;
+  
+  resultadoConsulta.style.display = 'block';
+  formConsulta.reset();
+});
+
+// =========================================================
+// LÓGICA DO ADMINISTRADOR (LOGIN E PAINEL)
+// =========================================================
+
+// Abrir tela de login
+adminToggle.addEventListener('click', () => {
+  loginPanel.classList.add('aberto');
+  senhaAdmin.focus();
+});
+
+// Fechar tela de login
+fecharLogin.addEventListener('click', () => {
+  loginPanel.classList.remove('aberto');
+  formLogin.reset();
+});
+
+// Submeter login
+formLogin.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (senhaAdmin.value === SENHA_ADMIN) {
+    loginPanel.classList.remove('aberto');
+    adminPanel.classList.add('aberto');
+    renderAdmin();
+    formLogin.reset();
+  } else {
+    toast("Senha incorreta! Acesso negado.", "erro");
+    senhaAdmin.value = '';
+    senhaAdmin.focus();
+  }
+});
+
+// Fechar painel admin
+adminFechar.addEventListener('click', () => {
+  adminPanel.classList.remove('aberto');
+});
+
+// Fechar com tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    adminPanel.classList.remove('aberto');
+    loginPanel.classList.remove('aberto');
+  }
+});
+
+// Renderizar dados no painel admin
+function renderAdmin() {
+  document.getElementById('adminTotalClientes').textContent = clientes.length;
+  document.getElementById('adminTotalPontos').textContent = clientes.reduce((s, c) => s + c.pontos, 0);
+  document.getElementById('adminTotalCombos').textContent = clientes.reduce((s, c) => s + (c.resgates || 0), 0);
+
+  const lista = document.getElementById('adminLista');
+  if (clientes.length === 0) {
+    lista.innerHTML = `<div style="text-align:center;padding:40px;color:rgba(255,248,231,0.5);">Nenhum cliente cadastrado ainda.</div>`;
+    return;
+  }
+
+  lista.innerHTML = clientes.slice().reverse().map(c => `
+    <div class="admin-cliente">
+      <div class="admin-avatar">${(c.nome || '?').charAt(0).toUpperCase()}</div>
+      <div class="admin-info">
+        <h4>${esc(c.nome)}</h4>
+        <span>📞 ${esc(c.telefone)} • 📍 ${esc(c.endereco)}</span>
+        ${c.indicadoPorNome ? `<span style="display:block;margin-top:2px;">🤝 Indicado por: ${esc(c.indicadoPorNome)}</span>` : ''}
+      </div>
+      <div class="admin-pontos">
+        <strong>${c.pontos}</strong>
+        <span>pts</span>
+      </div>
+      <div class="admin-acoes">
+        <button class="admin-btn admin-btn-resgatar" onclick="adminResgatar('${c.id}')">🎁 Resgatar</button>
+        <button class="admin-btn admin-btn-excluir" onclick="adminExcluir('${c.id}')">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Ação: resgatar pontos (admin)
+function adminResgatar(id) {
+  const c = clientes.find(x => x.id === id);
+  if (!c) return;
+  if (c.pontos < PONTOS_PARA_COMBO) {
+    toast("Pontos insuficientes para resgate (mín. 20).", "erro");
+    return;
+  }
+  if (confirm(`Resgatar combo para ${c.nome}? (20 pontos)`)) {
+    c.pontos -= PONTOS_PARA_COMBO;
+    c.resgates = (c.resgates || 0) + 1;
+    salvar();
+    render();
+    renderAdmin();
+    toast(`🎁 Combo resgatado para ${c.nome}!`, "bonus");
+  }
+}
+
+// Ação: excluir cliente (admin)
+function adminExcluir(id) {
+  const c = clientes.find(x => x.id === id);
+  if (!c) return;
+  if (confirm(`Excluir permanentemente o cadastro de "${c.nome}"?`)) {
+    clientes = clientes.filter(x => x.id !== id);
+    salvar();
+    render();
+    renderAdmin();
+    toast("Cadastro removido.", "erro");
+  }
+}
+
+// Ação: apagar todos os dados (admin)
+document.getElementById('btnLimparAdmin').addEventListener('click', () => {
+  if(clientes.length === 0){
+    toast('Não há dados para limpar.', 'erro');
+    return;
+  }
+  if(confirm('Isso apagará TODOS os clientes e pontos. Deseja continuar?')){
+    clientes = [];
+    salvar();
+    render();
+    renderAdmin();
+    toast('Todos os dados foram apagados.', 'erro');
+  }
+});
+
+// =========================================================
+// RENDERIZAÇÃO GERAL
+// =========================================================
+
+function render() {
+  // Atualiza estatísticas públicas
+  document.getElementById('totalClientes').textContent = clientes.length;
+  document.getElementById('totalPontos').textContent = clientes.reduce((s, c) => s + (c.pontos || 0), 0);
+  document.getElementById('totalCombos').textContent = clientes.reduce((s, c) => s + (c.resgates || 0), 0);
+  
+  // Se o admin estiver aberto, atualiza o painel
+  if (adminPanel.classList.contains('aberto')) {
+    renderAdmin();
+  }
+}
+
+// Inicialização
+render();
+</script>
+</body>
+</html>
