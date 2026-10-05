@@ -625,6 +625,44 @@
   @media (max-width: 380px) {
     .stats { grid-template-columns: 1fr; }
   }
+
+  /* ---------- BOTÃO DO CARDÁPIO DIGITAL ---------- */
+.btn-cardapio {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--dourado-claro), var(--dourado), #B8960C);
+  color: var(--marrom-escuro);
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 50px;
+  border: 2px solid var(--dourado-claro);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45),
+              0 0 0 4px rgba(240, 208, 96, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-cardapio:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(135deg, #FFE070, var(--dourado-claro), var(--dourado));
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.65),
+              0 0 0 6px rgba(240, 208, 96, 0.25);
+  color: var(--marrom-escuro);
+}
+
+.btn-cardapio:active {
+  transform: translateY(-1px) scale(1);
+}
+
+.btn-cardapio {
+  padding: 12px 22px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
 </style>
 </head>
 <body>
@@ -633,8 +671,10 @@
   <h1>🥟 La' MASSAS 🥤</h1>
   <p>⇓ Aqui seu cadastro vale pontos! ⇓</p>
   <div class="selo">🎁 Clube de Pontos — Cadastre-se e garanta já o seu combo!</div>
-  <div>
-  <a href="https://la-massas-1.goomer.app" target="_blank">
+  <div style="margin-top: 22px;">
+  <a href="https://la-massas-1.goomer.app" 
+     target="_blank" 
+     class="btn-cardapio">
     🛵 Peça pelo nosso cardápio digital
   </a>
 </div>
