@@ -13,6 +13,7 @@
     --creme: #FFF8E7;
     --laranja: #FF8C00;
     --vermelho: #C0392B;
+    --verde: #1a9a68;
     --branco: #fff;
     --sombra: 0 8px 32px rgba(43, 29, 14, 0.12);
     --sombra-forte: 0 12px 40px rgba(43, 29, 14, 0.2);
@@ -29,7 +30,6 @@
     padding-bottom: 60px;
   }
 
-  /* ---------- HEADER COM LOGO ---------- */
   header {
     background: linear-gradient(135deg, #1A1108 0%, #2B1D0E 50%, #3D2A14 100%);
     color: var(--creme);
@@ -40,18 +40,6 @@
     border-bottom: 3px solid var(--dourado);
   }
 
-  .logo-container {
-    max-width: 320px;
-    margin: 0 auto 16px;
-    filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.3));
-  }
-
-  .logo-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
   header h1 {
     font-size: clamp(1.8rem, 6vw, 3rem);
     font-weight: 800;
@@ -60,7 +48,6 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: 1px;
-    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
   }
 
   header p {
@@ -81,15 +68,9 @@
     font-size: 0.9rem;
     color: var(--dourado-claro);
     backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
   }
 
-  /* ---------- CONTAINER E CARDS ---------- */
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 18px;
-  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 18px; }
 
   .card {
     background: linear-gradient(145deg, rgba(255, 248, 231, 0.98), rgba(255, 245, 220, 0.95));
@@ -111,32 +92,12 @@
     background: linear-gradient(90deg, var(--dourado), var(--laranja), var(--dourado));
   }
 
-  .form-card {
-    margin-top: -70px;
-    position: relative;
-    z-index: 2;
-  }
+  .form-card { margin-top: -70px; position: relative; z-index: 2; }
 
-  .card h2 {
-    font-size: 1.25rem;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .card h2 { font-size: 1.25rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .card .sub { font-size: 0.88rem; color: #96795f; margin-bottom: 22px; }
 
-  .card .sub {
-    font-size: 0.88rem;
-    color: #96795f;
-    margin-bottom: 22px;
-  }
-
-  /* ---------- FORMULÁRIO ---------- */
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .campo { display: flex; flex-direction: column; gap: 6px; }
   .campo.full { grid-column: 1 / -1; }
 
@@ -155,7 +116,7 @@
   .campo input:focus {
     outline: none;
     border-color: var(--dourado);
-    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15), 0 4px 16px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
     background: #fff;
   }
 
@@ -168,10 +129,7 @@
     margin-bottom: 6px;
   }
 
-  .campo .dica {
-    font-size: 0.75rem;
-    color: #a89078;
-  }
+  .campo .dica { font-size: 0.75rem; color: #a89078; }
 
   .btn {
     border: none;
@@ -181,9 +139,8 @@
     font-weight: 700;
     font-family: inherit;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
-
   .btn:active { transform: scale(0.97); }
 
   .btn-primary {
@@ -204,7 +161,6 @@
     filter: brightness(1.05);
   }
 
-  /* ---------- ESTATÍSTICAS ---------- */
   .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -220,12 +176,7 @@
     box-shadow: var(--sombra);
     border-bottom: 4px solid var(--dourado);
   }
-  .stat .num {
-    font-size: 2.1rem;
-    font-weight: 800;
-    color: var(--laranja);
-    line-height: 1;
-  }
+  .stat .num { font-size: 2.1rem; font-weight: 800; color: var(--laranja); line-height: 1; }
   .stat .rot {
     font-size: 0.78rem;
     text-transform: uppercase;
@@ -235,7 +186,6 @@
     font-weight: 700;
   }
 
-  /* ---------- CONSULTA DE PONTOS ---------- */
   .consulta-card {
     background: linear-gradient(145deg, #FFF3D6, #FFE7CC);
     border: 2px dashed var(--dourado);
@@ -249,12 +199,7 @@
     padding: 20px;
     box-shadow: var(--sombra);
   }
-
-  .resultado-consulta h3 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    color: var(--marrom-escuro);
-  }
+  .resultado-consulta h3 { font-size: 1.1rem; margin-bottom: 12px; }
 
   .barra-progresso {
     height: 14px;
@@ -279,7 +224,6 @@
     text-align: center;
   }
 
-  /* ---------- REGRAS ---------- */
   .regras {
     background: linear-gradient(135deg, #FFF3D6, #FFE7CC);
     border: 2px dashed var(--dourado);
@@ -290,13 +234,7 @@
   }
   .regras h3 { font-size: 1.05rem; margin-bottom: 14px; }
   .regras ul { list-style: none; display: grid; gap: 10px; }
-  .regras li {
-    display: flex;
-    gap: 10px;
-    font-size: 0.92rem;
-    align-items: flex-start;
-    line-height: 1.45;
-  }
+  .regras li { display: flex; gap: 10px; font-size: 0.92rem; align-items: flex-start; line-height: 1.45; }
   .regras li span { font-size: 1.05rem; }
   .regras .destaque {
     margin-top: 16px;
@@ -309,7 +247,6 @@
     color: var(--vermelho);
   }
 
-  /* ---------- TOAST ---------- */
   .toast {
     position: fixed;
     left: 50%;
@@ -334,7 +271,6 @@
   .toast.erro { background: var(--vermelho); }
   .toast.bonus { background: linear-gradient(135deg, var(--laranja), var(--vermelho)); }
 
-  /* ---------- FOOTER ---------- */
   footer {
     text-align: center;
     margin-top: 50px;
@@ -343,10 +279,36 @@
     line-height: 1.7;
   }
 
-  /* =========================================================
-     PAINEL ADMINISTRATIVO E LOGIN
-     ========================================================= */
+  /* ---------- BOTÃO DO CARDÁPIO DIGITAL ---------- */
+  .btn-cardapio {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--dourado-claro), var(--dourado), #B8960C);
+    color: var(--marrom-escuro);
+    font-size: 1rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-radius: 50px;
+    border: 2px solid var(--dourado-claro);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45),
+                0 0 0 4px rgba(240, 208, 96, 0.15);
+    transition: all 0.3s ease;
+  }
 
+  .btn-cardapio:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: linear-gradient(135deg, #FFE070, var(--dourado-claro), var(--dourado));
+    box-shadow: 0 14px 36px rgba(212, 175, 55, 0.65),
+                0 0 0 6px rgba(240, 208, 96, 0.25);
+    color: var(--marrom-escuro);
+  }
+
+  .btn-cardapio:active { transform: translateY(-1px) scale(1); }
+
+  /* ---------- ADMIN ---------- */
   .admin-toggle {
     position: fixed;
     bottom: 24px;
@@ -365,13 +327,8 @@
     display: grid;
     place-items: center;
   }
+  .admin-toggle:hover { transform: scale(1.1) rotate(15deg); }
 
-  .admin-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 12px 36px rgba(212, 175, 55, 0.65);
-  }
-
-  /* Tela de Login */
   .login-panel {
     position: fixed;
     inset: 0;
@@ -400,15 +357,8 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .login-box h2 {
-    margin-bottom: 20px;
-    color: var(--marrom-escuro);
-    font-size: 1.3rem;
-  }
-
-  .login-box .campo {
-    text-align: left;
-  }
+  .login-box h2 { margin-bottom: 20px; font-size: 1.3rem; }
+  .login-box .campo { text-align: left; }
 
   .login-box .btn-limpar {
     background: #fff;
@@ -420,7 +370,6 @@
   }
   .login-box .btn-limpar:hover { background: #FFF0F1; }
 
-  /* Painel Admin */
   .admin-panel {
     position: fixed;
     inset: 0;
@@ -432,7 +381,6 @@
     padding: 24px;
     overflow-y: auto;
   }
-
   .admin-panel.aberto { display: flex; }
 
   .admin-header {
@@ -445,11 +393,7 @@
     flex-wrap: wrap;
     gap: 12px;
   }
-
-  .admin-header h2 {
-    font-size: 1.4rem;
-    color: var(--dourado);
-  }
+  .admin-header h2 { font-size: 1.4rem; color: var(--dourado); }
 
   .admin-fechar {
     background: rgba(255, 255, 255, 0.1);
@@ -464,11 +408,7 @@
     place-items: center;
     transition: 0.2s;
   }
-
-  .admin-fechar:hover {
-    background: var(--dourado);
-    color: var(--marrom-escuro);
-  }
+  .admin-fechar:hover { background: var(--dourado); color: var(--marrom-escuro); }
 
   .admin-stats {
     display: grid;
@@ -476,7 +416,6 @@
     gap: 16px;
     margin-bottom: 24px;
   }
-
   .admin-stat {
     background: rgba(255, 248, 231, 0.08);
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -484,13 +423,7 @@
     padding: 20px;
     text-align: center;
   }
-
-  .admin-stat .num {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--dourado);
-  }
-
+  .admin-stat .num { font-size: 2rem; font-weight: 800; color: var(--dourado); }
   .admin-stat .rot {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -499,10 +432,7 @@
     margin-top: 6px;
   }
 
-  .admin-lista {
-    display: grid;
-    gap: 12px;
-  }
+  .admin-lista { display: grid; gap: 12px; }
 
   .admin-cliente {
     background: rgba(255, 248, 231, 0.06);
@@ -514,7 +444,6 @@
     gap: 16px;
     transition: 0.2s;
   }
-
   .admin-cliente:hover {
     background: rgba(255, 248, 231, 0.1);
     border-color: rgba(212, 175, 55, 0.4);
@@ -533,11 +462,7 @@
     font-size: 1.2rem;
   }
 
-  .admin-info {
-    flex: 1;
-    min-width: 0;
-  }
-
+  .admin-info { flex: 1; min-width: 0; }
   .admin-info h4 {
     font-size: 1rem;
     color: var(--creme);
@@ -545,11 +470,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .admin-info span {
-    font-size: 0.8rem;
-    color: rgba(255, 248, 231, 0.6);
-  }
+  .admin-info span { font-size: 0.8rem; color: rgba(255, 248, 231, 0.6); }
 
   .admin-pontos {
     background: rgba(212, 175, 55, 0.15);
@@ -559,24 +480,10 @@
     text-align: center;
     min-width: 70px;
   }
+  .admin-pontos strong { display: block; font-size: 1.3rem; color: var(--dourado); line-height: 1; }
+  .admin-pontos span { font-size: 0.6rem; text-transform: uppercase; color: rgba(255, 248, 231, 0.5); }
 
-  .admin-pontos strong {
-    display: block;
-    font-size: 1.3rem;
-    color: var(--dourado);
-    line-height: 1;
-  }
-
-  .admin-pontos span {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    color: rgba(255, 248, 231, 0.5);
-  }
-
-  .admin-acoes {
-    display: flex;
-    gap: 6px;
-  }
+  .admin-acoes { display: flex; gap: 6px; flex-wrap: wrap; }
 
   .admin-btn {
     padding: 8px 14px;
@@ -589,15 +496,23 @@
     white-space: nowrap;
   }
 
+  .admin-btn-pedido {
+    background: linear-gradient(135deg, #127a53, var(--verde));
+    color: #fff;
+  }
+  .admin-btn-pedido:hover { filter: brightness(1.15); }
+
   .admin-btn-resgatar {
     background: linear-gradient(135deg, var(--dourado), var(--laranja));
     color: var(--marrom-escuro);
   }
-
-  .admin-btn-excluir {
-    background: rgba(192, 57, 43, 0.3);
-    color: #FF6B6B;
+  .admin-btn-resgatar:disabled {
+    background: rgba(212, 175, 55, 0.15);
+    color: rgba(255, 248, 231, 0.3);
+    cursor: not-allowed;
   }
+
+  .admin-btn-excluir { background: rgba(192, 57, 43, 0.3); color: #FF6B6B; }
 
   .admin-btn-limpar {
     background: rgba(192, 57, 43, 0.6);
@@ -609,7 +524,17 @@
     margin-bottom: 16px;
   }
 
-  /* ---------- RESPONSIVO MOBILE ---------- */
+  .admin-contador-pedidos {
+    font-size: 0.75rem;
+    color: rgba(255, 248, 231, 0.7);
+    background: rgba(18, 122, 83, 0.2);
+    border: 1px solid rgba(18, 122, 83, 0.4);
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
   @media (max-width: 640px) {
     .grid { grid-template-columns: 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
@@ -618,51 +543,11 @@
     .admin-stats { grid-template-columns: 1fr; }
     .admin-cliente { flex-wrap: wrap; }
     .admin-acoes { width: 100%; margin-top: 8px; }
-    .admin-btn { flex: 1; }
+    .admin-btn { flex: 1; font-size: 0.72rem; padding: 9px 8px; }
     .admin-toggle { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+    .btn-cardapio { padding: 12px 22px; font-size: 0.9rem; letter-spacing: 0.5px; }
   }
-
-  @media (max-width: 380px) {
-    .stats { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- BOTÃO DO CARDÁPIO DIGITAL ---------- */
-.btn-cardapio {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, var(--dourado-claro), var(--dourado), #B8960C);
-  color: var(--marrom-escuro);
-  font-size: 1rem;
-  font-weight: 800;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  border-radius: 50px;
-  border: 2px solid var(--dourado-claro);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45),
-              0 0 0 4px rgba(240, 208, 96, 0.15);
-  transition: all 0.3s ease;
-}
-
-.btn-cardapio:hover {
-  transform: translateY(-3px) scale(1.03);
-  background: linear-gradient(135deg, #FFE070, var(--dourado-claro), var(--dourado));
-  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.65),
-              0 0 0 6px rgba(240, 208, 96, 0.25);
-  color: var(--marrom-escuro);
-}
-
-.btn-cardapio:active {
-  transform: translateY(-1px) scale(1);
-}
-
-.btn-cardapio {
-  padding: 12px 22px;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
+  @media (max-width: 380px) { .stats { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -672,12 +557,10 @@
   <p>⇓ Aqui seu cadastro vale pontos! ⇓</p>
   <div class="selo">🎁 Clube de Pontos — Cadastre-se e garanta já o seu combo!</div>
   <div style="margin-top: 22px;">
-  <a href="https://la-massas-1.goomer.app" 
-     target="_blank" 
-     class="btn-cardapio">
-    🛵 Peça pelo nosso cardápio digital
-  </a>
-</div>
+    <a href="https://la-massas-1.goomer.app" target="_blank" class="btn-cardapio">
+      🛵 Peça pelo nosso cardápio digital
+    </a>
+  </div>
 </header>
 
 <div class="container">
@@ -693,25 +576,21 @@
           <label for="nome">Nome completo *</label>
           <input type="text" id="nome" placeholder="Ex: Maria Silva" autocomplete="name" required>
         </div>
-
         <div class="campo full">
           <label for="endereco">Endereço de entrega *</label>
           <input type="text" id="endereco" placeholder="Rua, número, bairro e ponto de referência" autocomplete="street-address" required>
         </div>
-
         <div class="campo">
           <label for="telefone">Telefone / WhatsApp *</label>
           <input type="tel" id="telefone" data-tel placeholder="(11) 91234-5678" inputmode="numeric" required>
           <span class="dica">Usado para identificar você no clube de pontos.</span>
         </div>
-
         <div class="campo">
           <label for="indicacao">Indicação de um amigo</label>
           <input type="tel" id="indicacao" data-tel placeholder="(11) 91234-5678" inputmode="numeric">
           <span class="dica">Telefone do amigo que te indicou — ele ganha +2 pontos.</span>
         </div>
       </div>
-
       <button type="submit" class="btn btn-primary">🎉 Cadastrar e ganhar 5 pontos</button>
     </form>
   </section>
@@ -720,7 +599,6 @@
   <section class="card consulta-card">
     <h2>⭐ Consultar Meus Pontos</h2>
     <p class="sub">Digite seu telefone cadastrado para ver quantos pontos você já tem e o quanto falta para o combo!</p>
-    
     <form id="formConsulta">
       <div class="campo">
         <label for="consultaTel">Telefone cadastrado</label>
@@ -728,31 +606,19 @@
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:16px;">🔍 Consultar Pontos</button>
     </form>
-
     <div class="resultado-consulta" id="resultadoConsulta">
       <h3 id="nomeConsulta"></h3>
       <p>Pontos atuais: <strong id="pontosConsulta" style="font-size:1.5rem; color:var(--laranja);"></strong></p>
-      <div class="barra-progresso">
-        <div class="barra-preenchimento" id="barraPreenchimento"></div>
-      </div>
+      <div class="barra-progresso"><div class="barra-preenchimento" id="barraPreenchimento"></div></div>
       <p class="faltam-pontos" id="faltamPontos"></p>
     </div>
   </section>
 
   <!-- ESTATÍSTICAS -->
   <section class="stats">
-    <div class="stat">
-      <div class="num" id="totalClientes">0</div>
-      <div class="rot">Clientes cadastrados</div>
-    </div>
-    <div class="stat">
-      <div class="num" id="totalPontos">0</div>
-      <div class="rot">Pontos ativos</div>
-    </div>
-    <div class="stat">
-      <div class="num" id="totalCombos">0</div>
-      <div class="rot">Combos resgatados</div>
-    </div>
+    <div class="stat"><div class="num" id="totalClientes">0</div><div class="rot">Clientes cadastrados</div></div>
+    <div class="stat"><div class="num" id="totalPontos">0</div><div class="rot">Pontos ativos</div></div>
+    <div class="stat"><div class="num" id="totalCombos">0</div><div class="rot">Combos resgatados</div></div>
   </section>
 
   <!-- REGRAS -->
@@ -760,7 +626,7 @@
     <h3>⭐ Como funciona o Clube de Pontos</h3>
     <ul>
       <li><span>🎉</span> <div><strong>5 pontos</strong> de boas-vindas ao se cadastrar na La' Massas!</div></li>
-      <li><span>🛵</span> <div><strong>5 pontos</strong> a cada pedido acima de R$ 20,00.</div></li>
+      <li><span>🛵</span> <div><strong>2 pontos</strong> a cada pedido realizado.</div></li>
       <li><span>🤝</span> <div><strong>2 pontos</strong> por amigo indicado!</div></li>
     </ul>
     <div class="destaque">
@@ -775,9 +641,7 @@
 </div>
 
 <!-- Botão flutuante para abrir o LOGIN do admin -->
-<button class="admin-toggle" id="adminToggle" title="Painel Administrativo">
-  ⚙️
-</button>
+<button class="admin-toggle" id="adminToggle" title="Painel Administrativo">⚙️</button>
 
 <!-- TELA DE LOGIN DO ADMIN -->
 <div class="login-panel" id="loginPanel">
@@ -794,7 +658,7 @@
   </div>
 </div>
 
-<!-- PAINEL ADMINISTRATIVO (só abre após login) -->
+<!-- PAINEL ADMINISTRATIVO -->
 <div class="admin-panel" id="adminPanel">
   <div class="admin-header">
     <h2>⚙️ Painel Administrativo — La' Massas</h2>
@@ -802,18 +666,9 @@
   </div>
 
   <div class="admin-stats">
-    <div class="admin-stat">
-      <div class="num" id="adminTotalClientes">0</div>
-      <div class="rot">Clientes</div>
-    </div>
-    <div class="admin-stat">
-      <div class="num" id="adminTotalPontos">0</div>
-      <div class="rot">Pontos Ativos</div>
-    </div>
-    <div class="admin-stat">
-      <div class="num" id="adminTotalCombos">0</div>
-      <div class="rot">Combos Resgatados</div>
-    </div>
+    <div class="admin-stat"><div class="num" id="adminTotalClientes">0</div><div class="rot">Clientes</div></div>
+    <div class="admin-stat"><div class="num" id="adminTotalPontos">0</div><div class="rot">Pontos Ativos</div></div>
+    <div class="admin-stat"><div class="num" id="adminTotalCombos">0</div><div class="rot">Combos Resgatados</div></div>
   </div>
 
   <button class="admin-btn admin-btn-limpar" id="btnLimparAdmin">🗑️ Apagar TODOS os dados</button>
@@ -824,28 +679,40 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// =========================================================
-// CONFIGURAÇÕES E VARIÁVEIS GLOBAIS
-// =========================================================
+// ╔══════════════════════════════════════════════════════════╗
+// ║  🔐  CONFIGURAÇÃO DO ADMINISTRADOR                       ║
+// ╚══════════════════════════════════════════════════════════╝
+const SENHA_ADMIN = "415263"; 
+// ← TROQUE AQUI 🔑
 
-// ⚠️ ALTERE A SENHA ABAIXO PARA A SUA SENHA SEGURA ⚠️
-const SENHA_ADMIN = "415263";
+// 🔒 Pedir armazenamento persistente ao navegador
+if (navigator.storage && navigator.storage.persist) {
+  navigator.storage.persist().then(granted => {
+    if (granted) {
+      console.log('✅ Armazenamento persistente ativado!');
+    } else {
+      console.log('⚠️ Armazenamento persistente não concedido.');
+    }
+  });
+}
 
-const STORAGE_KEY = 'lamassas_clientes_v1';
-const PONTOS_BOAS_VINDAS = 5;
-const PONTOS_POR_PEDIDO   = 5;
+// ╔══════════════════════════════════════════════════════════╗
+// ║  Configurações do clube                                  ║
+// ╚══════════════════════════════════════════════════════════╝
+const STORAGE_KEY          = 'lamassas_clientes_v1';
+const PONTOS_BOAS_VINDAS   = 5;
+const PONTOS_POR_PEDIDO    = 2;   // ← agora cada pedido vale 2 pontos
 const PONTOS_POR_INDICACAO = 2;
-const PONTOS_PARA_COMBO   = 20;
+const PONTOS_PARA_COMBO    = 20;
 
 let clientes = carregar();
 
-// Elementos do DOM
 const adminToggle = document.getElementById('adminToggle');
-const adminPanel = document.getElementById('adminPanel');
+const adminPanel  = document.getElementById('adminPanel');
 const adminFechar = document.getElementById('adminFechar');
-const loginPanel = document.getElementById('loginPanel');
-const formLogin = document.getElementById('formLogin');
-const senhaAdmin = document.getElementById('senhaAdmin');
+const loginPanel  = document.getElementById('loginPanel');
+const formLogin   = document.getElementById('formLogin');
+const senhaAdmin  = document.getElementById('senhaAdmin');
 const fecharLogin = document.getElementById('fecharLogin');
 
 /* ---------- Persistência ---------- */
@@ -854,18 +721,11 @@ function carregar(){
     const raw = localStorage.getItem(STORAGE_KEY);
     const dados = raw ? JSON.parse(raw) : [];
     return Array.isArray(dados) ? dados : [];
-  }catch(e){
-    console.warn('Erro ao carregar dados:', e);
-    return [];
-  }
+  }catch(e){ return []; }
 }
-
 function salvar(){
-  try{
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(clientes));
-  }catch(e){
-    toast('Não foi possível salvar os dados.', 'erro');
-  }
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(clientes)); }
+  catch(e){ toast('Não foi possível salvar os dados.', 'erro'); }
 }
 
 /* ---------- Helpers ---------- */
@@ -879,16 +739,12 @@ function mascaraTelefone(valor){
   if(d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
   return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
 }
-
 function esc(s){
   return String(s ?? '').replace(/[&<>"']/g, c => (
     { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
   ));
 }
-
-function hoje(){
-  return new Date().toLocaleDateString('pt-BR');
-}
+function hoje(){ return new Date().toLocaleDateString('pt-BR'); }
 
 let toastTimer;
 function toast(msg, tipo = 'ok'){
@@ -899,37 +755,29 @@ function toast(msg, tipo = 'ok'){
   toastTimer = setTimeout(() => { el.className = 'toast'; }, 3600);
 }
 
-/* ---------- Máscara automática nos telefones ---------- */
 document.querySelectorAll('[data-tel]').forEach(inp => {
-  inp.addEventListener('input', e => {
-    e.target.value = mascaraTelefone(e.target.value);
-  });
+  inp.addEventListener('input', e => { e.target.value = mascaraTelefone(e.target.value); });
 });
 
 // =========================================================
-// LÓGICA DO CLIENTE (CADASTRO E CONSULTA)
+// LÓGICA DO CLIENTE
 // =========================================================
-
-/* ---------- Cadastro ---------- */
 const form = document.getElementById('formCadastro');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+  const nome     = document.getElementById('nome').value.trim();
+  const endereco = document.getElementById('endereco').value.trim();
+  const telRaw   = document.getElementById('telefone').value.trim();
+  const indicRaw = document.getElementById('indicacao').value.trim();
 
-  const nome      = document.getElementById('nome').value.trim();
-  const endereco  = document.getElementById('endereco').value.trim();
-  const telRaw    = document.getElementById('telefone').value.trim();
-  const indicRaw  = document.getElementById('indicacao').value.trim();
+  if(nome.length < 3){ toast('Digite o nome completo do cliente.', 'erro'); return; }
+  if(endereco.length < 5){ toast('Digite um endereço válido.', 'erro'); return; }
 
-  if(nome.length < 3) { toast('Digite o nome completo do cliente.', 'erro'); return; }
-  if(endereco.length < 5) { toast('Digite um endereço válido.', 'erro'); return; }
-  
   const telDigitos = somenteDigitos(telRaw);
-  if(telDigitos.length < 10) { toast('Telefone inválido. Use (DDD) + número.', 'erro'); return; }
-  
+  if(telDigitos.length < 10){ toast('Telefone inválido. Use (DDD) + número.', 'erro'); return; }
   if(clientes.some(c => somenteDigitos(c.telefone) === telDigitos)){
-    toast('Este telefone já está cadastrado!', 'erro');
-    return;
+    toast('Este telefone já está cadastrado!', 'erro'); return;
   }
 
   const indDigitos = somenteDigitos(indicRaw);
@@ -938,8 +786,7 @@ form.addEventListener('submit', e => {
 
   if(indDigitos.length >= 10){
     if(indDigitos === telDigitos){
-      toast('Você não pode indicar o seu próprio número. 😅', 'erro');
-      return;
+      toast('Você não pode indicar o seu próprio número. 😅', 'erro'); return;
     }
     amigoIndex = clientes.findIndex(c => somenteDigitos(c.telefone) === indDigitos);
     if(amigoIndex >= 0){
@@ -951,21 +798,18 @@ form.addEventListener('submit', e => {
 
   const novo = {
     id: Date.now() + '-' + Math.random().toString(36).slice(2, 7),
-    nome,
-    endereco,
+    nome, endereco,
     telefone: mascaraTelefone(telDigitos),
     indicacao: indDigitos.length >= 10 ? mascaraTelefone(indDigitos) : '',
     indicadoPorNome,
     pontos: PONTOS_BOAS_VINDAS,
-    pedidos: 0,
-    resgates: 0,
+    pedidos: 0, resgates: 0,
     data: hoje()
   };
 
   clientes.push(novo);
   salvar();
   render();
-
   form.reset();
 
   if(indicadoPorNome){
@@ -975,60 +819,48 @@ form.addEventListener('submit', e => {
   }
 });
 
-/* ---------- Consulta de Pontos ---------- */
 const formConsulta = document.getElementById('formConsulta');
 const resultadoConsulta = document.getElementById('resultadoConsulta');
 
 formConsulta.addEventListener('submit', e => {
   e.preventDefault();
   const tel = somenteDigitos(document.getElementById('consultaTel').value);
-  
-  if(tel.length < 10) {
-    toast("Digite um telefone válido com DDD.", "erro");
-    return;
-  }
+  if(tel.length < 10){ toast("Digite um telefone válido com DDD.", "erro"); return; }
 
   const cliente = clientes.find(c => somenteDigitos(c.telefone) === tel);
-  
-  if (!cliente) {
+  if(!cliente){
     toast("Telefone não encontrado. Faça seu cadastro!", "erro");
     resultadoConsulta.style.display = 'none';
     return;
   }
 
-  // Preenche os dados na tela
   document.getElementById('nomeConsulta').textContent = `Olá, ${cliente.nome}!`;
   document.getElementById('pontosConsulta').textContent = `${cliente.pontos} pontos`;
-  
   const percentual = Math.min((cliente.pontos / PONTOS_PARA_COMBO) * 100, 100);
   document.getElementById('barraPreenchimento').style.width = `${percentual}%`;
-  
   const faltam = PONTOS_PARA_COMBO - cliente.pontos;
-  document.getElementById('faltamPontos').textContent = faltam <= 0 
-    ? "🎉 Você já pode resgatar seu combo! Vá até a loja." 
+  document.getElementById('faltamPontos').textContent = faltam <= 0
+    ? "🎉 Você já pode resgatar seu combo! Vá até a loja."
     : `Faltam apenas ${faltam} pontos para o seu combo!`;
-  
+
   resultadoConsulta.style.display = 'block';
   formConsulta.reset();
 });
 
 // =========================================================
-// LÓGICA DO ADMINISTRADOR (LOGIN E PAINEL)
+// LÓGICA DO ADMINISTRADOR
 // =========================================================
 
-// Abrir tela de login
 adminToggle.addEventListener('click', () => {
   loginPanel.classList.add('aberto');
   senhaAdmin.focus();
 });
 
-// Fechar tela de login
 fecharLogin.addEventListener('click', () => {
   loginPanel.classList.remove('aberto');
   formLogin.reset();
 });
 
-// Submeter login
 formLogin.addEventListener('submit', (e) => {
   e.preventDefault();
   if (senhaAdmin.value === SENHA_ADMIN) {
@@ -1036,6 +868,7 @@ formLogin.addEventListener('submit', (e) => {
     adminPanel.classList.add('aberto');
     renderAdmin();
     formLogin.reset();
+    toast("🔓 Bem-vindo(a), administrador!", "ok");
   } else {
     toast("Senha incorreta! Acesso negado.", "erro");
     senhaAdmin.value = '';
@@ -1043,12 +876,10 @@ formLogin.addEventListener('submit', (e) => {
   }
 });
 
-// Fechar painel admin
 adminFechar.addEventListener('click', () => {
   adminPanel.classList.remove('aberto');
 });
 
-// Fechar com tecla ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     adminPanel.classList.remove('aberto');
@@ -1056,7 +887,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Renderizar dados no painel admin
+// Renderizar painel admin
 function renderAdmin() {
   document.getElementById('adminTotalClientes').textContent = clientes.length;
   document.getElementById('adminTotalPontos').textContent = clientes.reduce((s, c) => s + c.pontos, 0);
@@ -1068,49 +899,65 @@ function renderAdmin() {
     return;
   }
 
-  lista.innerHTML = clientes.slice().reverse().map(c => `
+  lista.innerHTML = clientes.slice().reverse().map(c => {
+    const podeResgatar = c.pontos >= PONTOS_PARA_COMBO;
+    return `
     <div class="admin-cliente">
       <div class="admin-avatar">${(c.nome || '?').charAt(0).toUpperCase()}</div>
       <div class="admin-info">
         <h4>${esc(c.nome)}</h4>
         <span>📞 ${esc(c.telefone)} • 📍 ${esc(c.endereco)}</span>
         ${c.indicadoPorNome ? `<span style="display:block;margin-top:2px;">🤝 Indicado por: ${esc(c.indicadoPorNome)}</span>` : ''}
+        <span class="admin-contador-pedidos">🛵 ${c.pedidos || 0} pedido(s) • ${c.indicacoes || 0} indicação(ões)</span>
       </div>
       <div class="admin-pontos">
         <strong>${c.pontos}</strong>
         <span>pts</span>
       </div>
       <div class="admin-acoes">
-        <button class="admin-btn admin-btn-resgatar" onclick="adminResgatar('${c.id}')">🎁 Resgatar</button>
+        <button class="admin-btn admin-btn-pedido" onclick="adminAdicionarPedido('${c.id}')">➕ Pedido (+2)</button>
+        <button class="admin-btn admin-btn-resgatar" onclick="adminResgatar('${c.id}')" ${podeResgatar ? '' : 'disabled'}>🎁 Resgatar</button>
         <button class="admin-btn admin-btn-excluir" onclick="adminExcluir('${c.id}')">🗑️</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
-// Ação: resgatar pontos (admin)
+// ➕ NOVO: adicionar pedido (soma 2 pontos)
+function adminAdicionarPedido(id) {
+  const c = clientes.find(x => x.id === id);
+  if(!c) return;
+  c.pontos += PONTOS_POR_PEDIDO;
+  c.pedidos = (c.pedidos || 0) + 1;
+  salvar();
+  render();
+  renderAdmin();
+  toast(`🛵 Pedido registrado para ${c.nome}! +${PONTOS_POR_PEDIDO} pontos (total: ${c.pontos}).`, "ok");
+}
+
+// 🎁 Resgatar combo
 function adminResgatar(id) {
   const c = clientes.find(x => x.id === id);
-  if (!c) return;
-  if (c.pontos < PONTOS_PARA_COMBO) {
+  if(!c) return;
+  if(c.pontos < PONTOS_PARA_COMBO){
     toast("Pontos insuficientes para resgate (mín. 20).", "erro");
     return;
   }
-  if (confirm(`Resgatar combo para ${c.nome}? (20 pontos)`)) {
+  if(confirm(`Resgatar combo para ${c.nome}? (20 pontos)\nSaldo atual: ${c.pontos} pts`)){
     c.pontos -= PONTOS_PARA_COMBO;
     c.resgates = (c.resgates || 0) + 1;
     salvar();
     render();
     renderAdmin();
-    toast(`🎁 Combo resgatado para ${c.nome}!`, "bonus");
+    toast(`🎁 Combo resgatado para ${c.nome}! Saldo restante: ${c.pontos} pts.`, "bonus");
   }
 }
 
-// Ação: excluir cliente (admin)
+// 🗑️ Excluir cliente
 function adminExcluir(id) {
   const c = clientes.find(x => x.id === id);
-  if (!c) return;
-  if (confirm(`Excluir permanentemente o cadastro de "${c.nome}"?`)) {
+  if(!c) return;
+  if(confirm(`Excluir permanentemente o cadastro de "${c.nome}"?`)){
     clientes = clientes.filter(x => x.id !== id);
     salvar();
     render();
@@ -1119,12 +966,9 @@ function adminExcluir(id) {
   }
 }
 
-// Ação: apagar todos os dados (admin)
+// 🗑️ Apagar tudo
 document.getElementById('btnLimparAdmin').addEventListener('click', () => {
-  if(clientes.length === 0){
-    toast('Não há dados para limpar.', 'erro');
-    return;
-  }
+  if(clientes.length === 0){ toast('Não há dados para limpar.', 'erro'); return; }
   if(confirm('Isso apagará TODOS os clientes e pontos. Deseja continuar?')){
     clientes = [];
     salvar();
@@ -1137,20 +981,13 @@ document.getElementById('btnLimparAdmin').addEventListener('click', () => {
 // =========================================================
 // RENDERIZAÇÃO GERAL
 // =========================================================
-
 function render() {
-  // Atualiza estatísticas públicas
   document.getElementById('totalClientes').textContent = clientes.length;
   document.getElementById('totalPontos').textContent = clientes.reduce((s, c) => s + (c.pontos || 0), 0);
   document.getElementById('totalCombos').textContent = clientes.reduce((s, c) => s + (c.resgates || 0), 0);
-  
-  // Se o admin estiver aberto, atualiza o painel
-  if (adminPanel.classList.contains('aberto')) {
-    renderAdmin();
-  }
+  if (adminPanel.classList.contains('aberto')) renderAdmin();
 }
 
-// Inicialização
 render();
 </script>
 </body>
